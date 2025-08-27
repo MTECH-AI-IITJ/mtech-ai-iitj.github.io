@@ -191,7 +191,7 @@ function initializeProgress() {
 
 // Navigation functionality - fixed implementation
 function initializeNavigation() {
-  const navButtons = document.querySelectorAll('.nav__btn');
+  const navButtons = document.querySelectorAll('.nav__btn[data-section]');
   const sections = document.querySelectorAll('.section');
 
   navButtons.forEach(btn => {
