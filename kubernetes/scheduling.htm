@@ -1,0 +1,348 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+@font-face
+	{font-family:"Segoe UI Symbol";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-IN style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b>How many pods exist on the system?</b></p>
+
+<p class=MsoNormal>In the current(default) namespace.</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl get pods</p>
+
+<p class=MsoNormal>No resources found in default namespace.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Create a new pod using the nginx image.</b></p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl run nginx --image=nginx</p>
+
+<p class=MsoNormal>pod/nginx created</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>How many pods are created now?</b></p>
+
+<p class=MsoNormal>Note: We have created a few more pods. So please check again
+in the current(default) namespace.</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl get pods</p>
+
+<p class=MsoNormal>NAME            READY   STATUS    RESTARTS   AGE</p>
+
+<p class=MsoNormal>newpods-49nth   1/1     Running   0          3m1s</p>
+
+<p class=MsoNormal>newpods-85nx8   1/1     Running   0          3m1s</p>
+
+<p class=MsoNormal>newpods-c9hbp   1/1     Running   0          3m1s</p>
+
+<p class=MsoNormal>nginx           1/1     Running   0          53s</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Which image is specified for the pods whose names begin
+with the newpods- prefix?</b></p>
+
+<p class=MsoNormal>You must look at one of the new pods in detail to figure
+this out.</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl describe pod newpods-49nth </p>
+
+<p class=MsoNormal>    Image:         busybox</p>
+
+<p class=MsoNormal>    Image ID:     
+docker.io/library/busybox@sha256:ab33eacc8251e3807b85bb6dba570e4698c3998eca6f0fc2ccb60575a563ea74</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Which nodes are these pods placed on?</b></p>
+
+<p class=MsoNormal>You must look at all the pods in detail to figure this out.</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>✖</span>
+kubectl get pods nginx -o wide</p>
+
+<p class=MsoNormal>NAME    READY   STATUS    RESTARTS   AGE     IP          
+NODE           NOMINATED NODE   READINESS GATES</p>
+
+<p class=MsoNormal>nginx   1/1     Running   0          7m52s   10.22.0.12  
+controlplane   &lt;none&gt;           &lt;none&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>We just created a new pod named webapp. How many containers
+are part of the webapp pod?</p>
+
+<p class=MsoNormal>Note: Ignore the state of the pod for now.</p>
+
+<p class=MsoNormal>What is the state of the container agentx in the pod webapp?</p>
+
+<p class=MsoNormal>Wait for it to finish the ContainerCreating state</p>
+
+<p class=MsoNormal>Why do you think the container agentx in pod webapp is in
+error?</p>
+
+<p class=MsoNormal>Try to figure it out from the events section of the pod.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>controlplane ~ </b><b><span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl describe pod webapp</b></p>
+
+<p class=MsoNormal>Name:             webapp</p>
+
+<p class=MsoNormal>Namespace:        default</p>
+
+<p class=MsoNormal>Priority:         0</p>
+
+<p class=MsoNormal>Service Account:  default</p>
+
+<p class=MsoNormal>Node:             controlplane/192.168.28.47</p>
+
+<p class=MsoNormal>Start Time:       Wed, 03 Sep 2025 03:38:43 +0000</p>
+
+<p class=MsoNormal>Labels:           &lt;none&gt;</p>
+
+<p class=MsoNormal>Annotations:      &lt;none&gt;</p>
+
+<p class=MsoNormal>Status:           Pending</p>
+
+<p class=MsoNormal>IP:               10.22.0.13</p>
+
+<p class=MsoNormal>IPs:</p>
+
+<p class=MsoNormal>  IP:  10.22.0.13</p>
+
+<p class=MsoNormal>Containers:</p>
+
+<p class=MsoNormal>  nginx:</p>
+
+<p class=MsoNormal>    Container ID:  
+containerd://cc3dc5a39722e7dffabbb925cc19111a4c6993f9218737cc4a0394485abae323</p>
+
+<p class=MsoNormal>    Image:          nginx</p>
+
+<p class=MsoNormal>    Image ID:      
+docker.io/library/nginx@sha256:33e0bbc7ca9ecf108140af6288c7c9d1ecc77548cbfd3952fd8466a75edefe57</p>
+
+<p class=MsoNormal>    Port:           &lt;none&gt;</p>
+
+<p class=MsoNormal>    Host Port:      &lt;none&gt;</p>
+
+<p class=MsoNormal>    State:          Running</p>
+
+<p class=MsoNormal>      Started:      Wed, 03 Sep 2025 03:38:43 +0000</p>
+
+<p class=MsoNormal>    Ready:          True</p>
+
+<p class=MsoNormal>    Restart Count:  0</p>
+
+<p class=MsoNormal>    Environment:    &lt;none&gt;</p>
+
+<p class=MsoNormal>    Mounts:</p>
+
+<p class=MsoNormal>      /var/run/secrets/kubernetes.io/serviceaccount from
+kube-api-access-sgpzr (ro)</p>
+
+<p class=MsoNormal>  agentx:</p>
+
+<p class=MsoNormal>    Container ID:   </p>
+
+<p class=MsoNormal>    Image:          agentx</p>
+
+<p class=MsoNormal>    Image ID:       </p>
+
+<p class=MsoNormal>    Port:           &lt;none&gt;</p>
+
+<p class=MsoNormal>    Host Port:      &lt;none&gt;</p>
+
+<p class=MsoNormal>    State:          Waiting</p>
+
+<p class=MsoNormal>      Reason:       ErrImagePull</p>
+
+<p class=MsoNormal>    Ready:          False</p>
+
+<p class=MsoNormal>    Restart Count:  0</p>
+
+<p class=MsoNormal>    Environment:    &lt;none&gt;</p>
+
+<p class=MsoNormal>    Mounts:</p>
+
+<p class=MsoNormal>      /var/run/secrets/kubernetes.io/serviceaccount from
+kube-api-access-sgpzr (ro)</p>
+
+<p class=MsoNormal>Conditions:</p>
+
+<p class=MsoNormal>  Type                        Status</p>
+
+<p class=MsoNormal>  PodReadyToStartContainers   True </p>
+
+<p class=MsoNormal>  Initialized                 True </p>
+
+<p class=MsoNormal>  Ready                       False </p>
+
+<p class=MsoNormal>  ContainersReady             False </p>
+
+<p class=MsoNormal>  PodScheduled                True </p>
+
+<p class=MsoNormal>Volumes:</p>
+
+<p class=MsoNormal>  kube-api-access-sgpzr:</p>
+
+<p class=MsoNormal>    Type:                    Projected (a volume that
+contains injected data from multiple sources)</p>
+
+<p class=MsoNormal>    TokenExpirationSeconds:  3607</p>
+
+<p class=MsoNormal>    ConfigMapName:           kube-root-ca.crt</p>
+
+<p class=MsoNormal>    Optional:                false</p>
+
+<p class=MsoNormal>    DownwardAPI:             true</p>
+
+<p class=MsoNormal>QoS Class:                   BestEffort</p>
+
+<p class=MsoNormal>Node-Selectors:              &lt;none&gt;</p>
+
+<p class=MsoNormal>Tolerations:                
+node.kubernetes.io/not-ready:NoExecute op=Exists for 300s</p>
+
+<p class=MsoNormal>                            
+node.kubernetes.io/unreachable:NoExecute op=Exists for 300s</p>
+
+<p class=MsoNormal>Events:</p>
+
+<p class=MsoNormal>  Type     Reason     Age                From              
+Message</p>
+
+<p class=MsoNormal>  ----     ------     ----               ----              
+-------</p>
+
+<p class=MsoNormal>  Normal   Scheduled  54s                default-scheduler 
+Successfully assigned default/webapp to controlplane</p>
+
+<p class=MsoNormal>  Normal   Pulling    54s                kubelet           
+Pulling image &quot;nginx&quot;</p>
+
+<p class=MsoNormal>  Normal   Pulled     54s                kubelet           
+Successfully pulled image &quot;nginx&quot; in 145ms (145ms including waiting).
+Image size: 72324501 bytes.</p>
+
+<p class=MsoNormal>  Normal   Created    54s                kubelet           
+Created container: nginx</p>
+
+<p class=MsoNormal>  Normal   Started    54s                kubelet           
+Started container nginx</p>
+
+<p class=MsoNormal>  Normal   Pulling    16s (x3 over 54s)  kubelet           
+Pulling image &quot;agentx&quot;</p>
+
+<p class=MsoNormal>  Warning  Failed     16s (x3 over 53s)  kubelet           
+Failed to pull image &quot;agentx&quot;: failed to pull and unpack image
+&quot;docker.io/library/agentx:latest&quot;: failed to resolve reference
+&quot;docker.io/library/agentx:latest&quot;: pull access denied, repository
+does not exist or may require authorization: server message:
+insufficient_scope: authorization failed</p>
+
+<p class=MsoNormal>  Warning  Failed     16s (x3 over 53s)  kubelet           
+Error: ErrImagePull</p>
+
+<p class=MsoNormal>  Normal   BackOff    1s (x3 over 52s)   kubelet           
+Back-off pulling image &quot;agentx&quot;</p>
+
+<p class=MsoNormal>  Warning  Failed     1s (x3 over 52s)   kubelet           
+Error: ImagePullBackOff</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>What does the READY column in the output of the kubectl
+get pods command indicate?</b></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Delete the webapp Pod.</b></p>
+
+<p class=MsoNormal>Once deleted, wait for the pod to fully terminate.</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl delete pod webapp</p>
+
+<p class=MsoNormal>pod &quot;webapp&quot; deleted</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Create a new pod with the name redis and the image
+redis123.</b></p>
+
+<p class=MsoNormal>Use a pod-definition YAML file. And yes the image name is
+wrong!</p>
+
+<p class=MsoNormal>controlplane ~ <span style='font-family:"Segoe UI Symbol",sans-serif'>➜</span> 
+kubectl run redis --image=redis123</p>
+
+<p class=MsoNormal>pod/redis created</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
