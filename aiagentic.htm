@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes Exam Topics Grid</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7f9;
+            color: #333;
+            line-height: 1.4;
+            padding: 12px;
+            font-size: 13px;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(135deg, #326ce6 0%, #2c5cc5 100%);
+            color: white;
+        }
+        
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+        
+        .description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        th {
+            background-color: #4564b0;
+            color: white;
+            text-align: left;
+            padding: 10px 12px;
+            position: sticky;
+            top: 0;
+            font-size: 12px;
+        }
+        
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            line-height: 1.3;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #eef2f7;
+        }
+        
+        .topic-header {
+            background-color: #326ce6;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .percentage {
+            text-align: center;
+            background-color: #5a7ac0;
+            color: white;
+            font-weight: bold;
+            width: 60px;
+            font-size: 11px;
+        }
+        
+        .black-value {
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            font-weight: bold;
+            width: 80px;
+            font-size: 11px;
+        }
+        
+        .subtopic {
+            padding-left: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            background-color: #f0f2f5;
+        }
+        
+        @media (max-width: 992px) {
+            th, td {
+                padding: 8px 10px;
+            }
+            
+            .topic-header {
+                font-size: 0.95rem;
+            }
+            
+            .subtopic {
+                padding-left: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+                font-size: 12px;
+            }
+            
+            .table-container {
+                font-size: 11px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            th, td {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kubernetes Exam Topics</h1>
+            <p class="description">Compact overview of all topics and subtopics</p>
+        </header>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 60%;">Topic / Subtopic</th>
+                        <th style="width: 12%;">Weight</th>
+                        <th style="width: 18%;">Commands</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Topic 0 -->
+                    <tr>
+                        <td>Scheduling</td>
+                        <td>
+						<li><a href="./kubernetes/misc.htm">Basic Commands</a></li><br>
+						<li><a href="./kubernetes/scheduling.htm">Scheduling</a></li><br>
+						<li><a href="./kubernetes/labelandselector.htm">labels and selector</a></li><br>
+						<li><a href="./kubernetes/taintsandtolerations.htm">Taints and Tolerations</a></li><br>
+						<li><a href="./kubernetes/nodeselectorsnodeaffinity.htm">Node Selectors, Node Affinity</a></li><br>
+						</td>			
+						<td>
+						<li>POD recreation either by delete then create or replace<b>(kubectl replace --force -f pod.yml)</b></li><br>
+						<li>POD watcher<b>(kubectl get pods --watch)</b></li><br>
+						<li>POD labels and selectors<b>(kubectl get pods --selector app1=web)</b></li><br>
+						<li>Output without headers<b>(kubectl get pods --no-headers)</b></li><br>
+
+						</td>
+
+                    </tr>
+
+
+                    <!-- Topic 1 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🧭 Cluster Architecture, Installation & Configuration</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Design a Kubernetes cluster</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Install Kubernetes masters and nodes</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Configure secure cluster communications</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Configure high-availability (HA)</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Provision underlying infrastructure</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Choose appropriate networking solutions</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Configure API access and RBAC</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use kubeadm to install Kubernetes</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Manage certificates</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Migrate clusters</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Upgrade clusters</td>
+                        <td class="percentage">~25%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    
+                    <!-- Topic 2 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🧑‍💻 Workloads & Scheduling</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand deployments and rolling updates/rollbacks</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use ConfigMaps and Secrets</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand multi-container pods</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand probes (liveness, readiness, startup)</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use labels, selectors, and annotations</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand DaemonSets, Jobs, CronJobs</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Manually schedule pods</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Low</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand priority and affinity rules</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Debug running pods</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    
+                    <!-- Topic 3 -->
+                    <tr class="topic-header">
+                        <td colspan="3">⚙️ Services & Networking</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand Services (ClusterIP, NodePort, etc.)</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand Endpoints and EndpointSlices</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Configure and troubleshoot CoreDNS</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand Ingress and Ingress Controllers</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use Network Policies</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Troubleshoot cluster networking</td>
+                        <td class="percentage">~20%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    
+                    <!-- Topic 4 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🔐 Cluster Maintenance</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Perform node maintenance</td>
+                        <td class="percentage">~11%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Upgrade Kubernetes components</td>
+                        <td class="percentage">~11%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Backup and restore etcd</td>
+                        <td class="percentage">~11%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Troubleshoot cluster components</td>
+                        <td class="percentage">~11%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Manage and rotate certificates</td>
+                        <td class="percentage">~11%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    
+                    <!-- Topic 5 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🔒 Security</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand authentication and authorization (RBAC)</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use and manage Service Accounts</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Configure Network Policies</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Manage secrets and secure workloads</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use Pod Security Admission (PSA)</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use security contexts</td>
+                        <td class="percentage">~15%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    
+                    <!-- Topic 6 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🔍 Logging / Monitoring</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Understand cluster-level logging</td>
+                        <td class="percentage">~5%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Monitor cluster components</td>
+                        <td class="percentage">~5%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use logging tools</td>
+                        <td class="percentage">~5%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Set up metrics server</td>
+                        <td class="percentage">~5%</td>
+                        <td class="black-value">Medium</td>
+                    </tr>
+                    
+                    <!-- Topic 7 -->
+                    <tr class="topic-header">
+                        <td colspan="3">🧪 Troubleshooting</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Troubleshoot application failures</td>
+                        <td class="percentage">~13%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Troubleshoot control plane components</td>
+                        <td class="percentage">~13%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Troubleshoot networking issues</td>
+                        <td class="percentage">~13%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                    <tr>
+                        <td class="subtopic">Use kubectl and debugging tools</td>
+                        <td class="percentage">~13%</td>
+                        <td class="black-value">High</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <footer>
+            <p>Kubernetes Exam Topics Grid - Compact overview of all topics</p>
+        </footer>
+    </div>
+</body>
+</html>
