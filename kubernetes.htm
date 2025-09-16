@@ -162,13 +162,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 60%;">Topic / Subtopic</th>
-                        <th style="width: 12%;">Weight</th>
-                        <th style="width: 18%;">Commands</th>
+                        <th style="width: 10%;">Topic / Subtopic</th>
+                        <th style="width: 10%;">Weight</th>
+                        <th style="width: 28%;">Commands</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Topic 0 -->
+                    <!-- Scheduling -->
                     <tr>
                         <td>Scheduling</td>
                         <td>
@@ -183,6 +183,22 @@
 						<li>POD watcher<b>(kubectl get pods --watch)</b></li><br>
 						<li>POD labels and selectors<b>(kubectl get pods --selector app1=web)</b></li><br>
 						<li>Output without headers<b>(kubectl get pods --no-headers)</b></li><br>
+
+						</td>
+
+                    </tr>
+					
+                    <!-- Logging & Monitoring -->
+                    <tr>
+                        <td>Logging & Monitoring</td>
+                        <td>
+						<li><a href="./kubernetes/Logging&Monitoring.htm">Logging & Monitoring</a></li><br>
+						</td>			
+						<td>
+						<li>Deploy metrics server<b>(kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml)</b></li><br>
+						<li>CPU and Memory usage<b>(kubectl top node OR kubectl top pod)</b></li><br>
+						<li>Inspect running logs of a pod<b>(kubectl logs -f "podname")</b></li><br>
+						<li>Inspect running logs of a pod having multiple container<b>(kubectl logs -f "podname" "containername")</b></li><br>
 
 						</td>
 
